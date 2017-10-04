@@ -38,7 +38,10 @@ class History extends Component {
             </Text>
           </View>
         : <TouchableOpacity
-            onPress={() => console.log('Pressed!')}
+            onPress={() => this.props.navigation.navigate(
+              'EntryDetail',
+              { entryId: key }
+            )}
           >
             <MetricCard date={formattedDate} metrics={metrics} />
           </TouchableOpacity>}
@@ -49,7 +52,7 @@ class History extends Component {
       <View style={styles.item}>
         <DateHeader date={formattedDate}/>
         <Text style={styles.noDataText}>
-          You didnt log any data on this day.
+          You didn't log any data on this day.
         </Text>
       </View>
     )
